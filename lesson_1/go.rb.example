@@ -1,0 +1,20 @@
+require 'nokogiri'
+require 'rest-client'
+
+url = "http://www.appledaily.com.tw/realtimenews/section/sports/"
+base_url = "http://www.appledaily.com.tw"
+raw_data = RestClient.get(url)
+data = Nokogiri::HTML(raw_data.body)
+page_links = data.css('nav.page_switch a')
+
+i = 0
+while i < page_links.size do
+  new_url = base_url+page_links[i][:href]
+  raw_page_data = RestClient.get(new_url)
+  page_data = Nokogiri::HTML(raw_page_data.body)
+  list = page_data.css('ul.rtddd li.rtddt')
+  list.each do |li|
+    puts li.css('font').text
+  end
+  i+=1
+end
