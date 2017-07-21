@@ -1,0 +1,24 @@
+https://colorgy.io/api/hackntu/organizations 像這樣
+所有 API 換頁方法都是加上 page=頁碼
+
+學校列表
+api/hackntu/organizations
+
+顯示指定學校的一般行事曆
+api/hackntu/organizations/學校代碼/events
+
+顯示指定學校的科系清單
+api/hackntu/organizations/學校代碼/departments
+
+顯示指定學校的課程資料
+api/hackntu/organizations/學校代碼/courses?year=2016&term=2
+需指定 year / term
+
+顯示指定學校的節次時間
+api/hackntu/organizations/學校代碼/course_periods?year=2016&term=2
+需指定 year / term
+
+顯示指定學校的特定課名關鍵字的資料
+api/hackntu/organizations/NTU/courses_search?year=2016&term=2&name=課名關鍵字
+需指定 year / term / name
+
